@@ -1,26 +1,34 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"net/http"
+	"os"
+
+	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	title := "Jenkins X golang http example"
+var db *gorm.DB
 
-	from := ""
-	if r.URL != nil {
-		from = r.URL.String()
-	}
-	if from != "/favicon.ico" {
-		log.Printf("title: %s\n", title)
-	}
+// Log is the main logger
+var Log = log.New(os.Stdout, "STARTER-X: ", log.Lshortfile|log.LstdFlags)
 
-	fmt.Fprintf(w, "Hello from:  "+title+"\n")
+func initDB(name string, drop bool) {
+	Log.Printf("Initialising database as sqlite3")
+	// TODO: Drop db if drop==true
+	db, _ = gorm.Open("sqlite3", name)
+	if db == nil {
+		panic("Could not connect to database")
+	}
+	//defer db.Close()
 }
 
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	initDB("todo.db", false)
+	migrateModel(db)
+	r := gin.Default()
+	addGroup(r, "/api/v1")
+	r.Run(":8080")
 }

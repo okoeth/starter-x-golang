@@ -1,0 +1,44 @@
+hash: 7477ddabaee2d7998034eb04d154909146903a7fecdec1238847ccfd9f11fa63
+updated: 2018-10-11T14:19:58.320274+02:00
+imports:
+- name: github.com/gin-contrib/sse
+  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+- name: github.com/gin-gonic/gin
+  version: b869fe1415e4b9eb52f247441830d502aece2d4d
+  subpackages:
+  - binding
+  - json
+  - render
+- name: github.com/golang/protobuf
+  version: ddf22928ea3c56eb4292a0adbbf5001b1e8e7d0d
+  subpackages:
+  - proto
+- name: github.com/jinzhu/gorm
+  version: 6ed508ec6a4ecb3531899a69cbc746ccf65a4166
+  subpackages:
+  - dialects/sqlite
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/json-iterator/go
+  version: 2433035e513208b0f7bd5b50d0aecd889b2c1ff8
+- name: github.com/mattn/go-isatty
+  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
+- name: github.com/mattn/go-sqlite3
+  version: 25ecb14adfc7543176f7d85291ec7dba82c6f7e4
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/ugorji/go
+  version: 99ea80c8b19ad777f970258ca09c5c2d5826f0fd
+  subpackages:
+  - codec
+- name: golang.org/x/sys
+  version: 4497e2df6f9e69048a54498c7affbbec3294ad47
+  subpackages:
+  - unix
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+testImports: []
