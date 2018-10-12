@@ -7,6 +7,7 @@ target/maven-status
 target/surefire-reports
 target/test-classes
 target/*.original
+bin/
 charts/
 NOTICE
 LICENSE
