@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -25,10 +26,15 @@ func initDB(name string, drop bool) {
 	//defer db.Close()
 }
 
+func hello(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "message": "Hello World"})
+}
+
 func main() {
 	initDB("todo.db", false)
 	migrateModel(db)
 	r := gin.Default()
+	r.GET("", hello)
 	addGroup(r, "/api/v1")
 	r.Run(":8080")
 }
